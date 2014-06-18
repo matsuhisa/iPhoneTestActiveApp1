@@ -1,10 +1,5 @@
-//
 //  ActivityApp1MasterViewController.m
 //  ActivityApp1
-//
-//  Created by 松久浩伸 on 2014/06/19.
-//  Copyright (c) 2014年 ___FULLUSERNAME___. All rights reserved.
-//
 
 #import "ActivityApp1MasterViewController.h"
 

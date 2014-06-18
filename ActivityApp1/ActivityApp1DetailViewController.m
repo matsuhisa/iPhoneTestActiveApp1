@@ -1,10 +1,5 @@
-//
 //  ActivityApp1DetailViewController.m
 //  ActivityApp1
-//
-//  Created by 松久浩伸 on 2014/06/19.
-//  Copyright (c) 2014年 ___FULLUSERNAME___. All rights reserved.
-//
 
 #import "ActivityApp1DetailViewController.h"
 
@@ -28,8 +23,6 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
     }
@@ -46,6 +39,27 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)Share:(id)sender {
+    NSLog(@"-----------");
+    NSLog(@"share");
+    NSLog(@"-----------");
+
+    NSString *text  = @"投稿するテキスト";
+    NSURL    *url   = [NSURL URLWithString:@"http://wwww.yahoo.co.jp/"];
+    NSArray *activityItems = @[text, url];
+
+    // 除外するものを指定
+    //NSArray *acitivities = @[UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePrint, UIActivityTypePostToFacebook, UIActivityTypeCopyToPasteboard];
+    NSArray *acitivities = @[];
+    
+    UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:activityItems
+    applicationActivities:nil];
+    
+    activityView.excludedActivityTypes = acitivities;
+    
+    [self presentViewController:activityView animated:YES completion:nil];
 }
 
 @end
